@@ -1,0 +1,23 @@
+@import '/colors.less';
+
+.navItem {
+    color: @white;
+    display: inline-block;
+    line-break: normal;
+    min-width: 100px;
+    padding: 0 10px;
+
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}    
+
+.navItem:hover {
+    text-shadow: 0 0 10px @white;
+}
+
+@media all and (max-width: 500px) {
+    .navItem {
+        padding: 10px;
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,25 @@
+.previewSection {
+    padding: 20px;
+    padding-top: 110px;
+    box-sizing: content-box;
+    position: relative;
+
+    .headline {
+        color: black;
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .previewSection {
+        padding-top: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .headline {
+            margin-left: 0;
+        }
+    }
+}

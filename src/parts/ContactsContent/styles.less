@@ -1,0 +1,57 @@
+@import '/colors.less';
+
+.content {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 50%;
+    height: 100%;
+
+    padding: 20px 16px;
+
+    background: @black;
+    color: @white;
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        padding-top: 16px;
+        padding-left: 8px; 
+        font-size: 24px;
+        font-weight: 400;
+    }
+    ul {
+        li{
+            font-size: 16px;
+            list-style: none;
+            padding-top: 10px;
+            padding-left: 16px;
+        }
+    }
+}
+
+.important {
+    color: gold;
+}
+
+@media all and (max-width: 700px) {
+    .content {
+        position: relative;
+        width: 100%;
+        left: 0;
+        background: @black;
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            li{
+                font-size: 16px;
+                list-style: none;
+                padding-left: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.colorCard {
+    width: 30%;
+    height: 100px;
+    display: block;
+    position: relative;
+    max-width: 25%;
+    flex: 1 0 150px;
+
+    .colorInfo {
+        background: rgba(0,0,0,.9);
+        position: absolute;
+        height: 40px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 5px;
+        line-height: normal;
+        .colorText {
+            font-size: 16px; 
+            color: white;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .colorCard {
+        max-width: 33.3%;
+        flex: 0 0 33.3%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .colorCard {
+        max-width: 100%;
+        flex: 1 0 50%;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .colorCard {
+        height: 70px;
+
+        .colorInfo {
+            padding: 10px;
+            height: 30px;
+            padding: 2px;
+            
+            .colorText {
+                font-size: 14px;
+            }
+        }
+    }
+}

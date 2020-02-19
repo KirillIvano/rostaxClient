@@ -1,0 +1,44 @@
+
+@keyframes animPreloader{
+    from {
+        transform: translateX(-100%) translateY(100%);
+    }
+
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+
+    to {
+        transform: translateX(-100%) translateY(100%);
+    }
+}
+
+.preloaderContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .preloader {
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        .frontPaint{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: animPreloader 1s 0s infinite;
+            background: black;
+        }
+        .backPaint{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: animPreloader 1s 0.5s infinite;
+            background: gold;
+        }
+    }
+}
