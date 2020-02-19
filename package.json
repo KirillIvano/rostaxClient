@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --settings webpack.dev.js"
+    "dev": "webpack-dev-server --settings webpack.dev.js"
   },
   "dependencies": {
     "apollo-boost": "^0.4.7",
@@ -15,7 +15,8 @@
     "react-dom": "^16.8.6",
     "react-parallax": "^2.2.3",
     "react-router-dom": "^5.0.1",
-    "react-scroll": "^1.7.12"
+    "react-scroll": "^1.7.12",
+    "recompose": "^0.30.0"
   },
   "devDependencies": {
     "@apollo/react-hooks": "^3.1.3",

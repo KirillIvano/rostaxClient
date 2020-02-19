@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.less';
 
-export default function Preloader() {
+export const Preloader = () => {
     return (
         <div className={styles.preloaderContainer}>
             <div className={styles.preloader}>
