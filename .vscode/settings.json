@@ -1,7 +1,10 @@
 {
-    "less.compile":{
-        "compress": true,
-        "autoPrefixer": "> 0.02%, not ie < 9",
-        "ieCompat": true
+    "eslint.run": "onSave",
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "less.compile": {
+        "out": null,
     }
 }
