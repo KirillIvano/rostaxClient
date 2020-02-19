@@ -7,11 +7,10 @@ const client = new ApolloClient({
 client
     .query({
         query: gql`{
-        products {
-            name
-        }
-    }
-    `,
+            products {
+                name
+            }
+        }`,
     })
     .then(result => console.log(result));
 

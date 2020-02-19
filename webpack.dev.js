@@ -1,8 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
+const merge = require('webpack-merge');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-module.exports = {
+const dev = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         port: '3000',
@@ -16,11 +17,13 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new CleanWebpackPlugin(),
     ],
+    mode: 'development',
     module: {
         rules: [
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|svg)$/,
                 use: [
                     'url-loader',
                 ],
@@ -36,14 +39,6 @@ module.exports = {
                         },
                     },
                     {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [
-                                autoprefixer(),
-                            ],
-                        },
-                    },
-                    {
                         loader: 'less-loader',
                         options: {
                             paths: [path.resolve(__dirname, 'src/common/')],
@@ -55,4 +50,10 @@ module.exports = {
         ],
     },
 };
+
+module.exports = merge(
+    require('./webpack.common'),
+    dev,
+);
+
 

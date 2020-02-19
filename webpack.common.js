@@ -16,7 +16,6 @@ module.exports = {
         chunkFilename: '[name].bundle.js',
     },
 
-    mode: 'production',
     module: {
         rules: [
             {

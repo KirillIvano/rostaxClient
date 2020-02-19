@@ -1,45 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
+import classnames from 'classnames';
+
 import styles from './styles.less';
+import {
+    HeaderLogo,
+    HeaderMenu,
+    HeaderNav,
+    HeaderPhone,
+    HeaderBurger,
+} from './components';
 
-import HeaderLogo from './HeaderLogo';
-import HeaderNav from './HeaderNav';
-import HeaderMenu from './HeaderMenu';
-import HeaderPhone from './HeaderPhone';
-import Burger from './Burger';
+export const Header = ({
+    showPopup,
+}) => {
+    const [isMenuOpened, setMenuState] = useState(false);
 
-export default class Header extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isMenuOpened: false,
-        };
-    }
+    const toggleMenu = () => setMenuState(isOpened => !isOpened);
+    const width = document.documentElement.clientWidth;
 
-    toggleMenu = () => {
-        this.setState({
-            isMenuOpened: !this.state.isMenuOpened,
-        });
-    };
-
-    render () {
-        const width = document.documentElement.clientWidth;
-        return (
-            <React.Fragment>
-                <div className={styles.header + ' ' + (this.props.hidden && !this.state.isMenuOpened ? styles.hidden : '')}>
+    return (
+        <>
+            <div className={
+                classnames(
+                    styles.header,
                     {
-                        width > 500 ? <HeaderLogo /> : <Burger toggleMenu={this.toggleMenu} />
-                    }
-                    {
-                        width > 500 ? <HeaderNav /> : null
-                    }
-                    <HeaderPhone showPopup={this.props.showPopup} />
-                </div>
+                        [styles.hidden]: !isMenuOpened,
+                    },
+                )
+            }>
                 {
                     width > 500 ?
-                    null :
-                    <HeaderMenu toggleMenu={this.toggleMenu} isOpened={this.state.isMenuOpened} />
+                        <>
+                            <HeaderLogo />
+                            <HeaderNav />
+                        </> :
+                        <HeaderBurger toggleMenu={toggleMenu} />
                 }
-            </React.Fragment>
-        );
-    };
-}
+                <HeaderPhone showPopup={showPopup} />
+            </div>
+
+            {
+                width > 500 ?
+                    null :
+                    <HeaderMenu
+                        toggleMenu={toggleMenu}
+                        isOpened={isMenuOpened}
+                    />
+            }
+        </>
+    );
+};

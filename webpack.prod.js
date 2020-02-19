@@ -1,8 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
+const merge = require('webpack-merge');
+const autoprefixer = require('autoprefixer');
 
-module.exports = {
+const prod = {
     entry: './src/index.js',
 
     optimization: {
@@ -51,6 +53,14 @@ module.exports = {
                         },
                     },
                     {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                autoprefixer(),
+                            ],
+                        },
+                    },
+                    {
                         loader: 'less-loader',
                         options: {
                             paths: [path.resolve(__dirname, 'src/common/')],
@@ -62,4 +72,7 @@ module.exports = {
     },
 };
 
-
+module.exports = merge(
+    require('./webpack.common'),
+    prod,
+);

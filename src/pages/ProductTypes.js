@@ -15,11 +15,12 @@ class ProductTypes extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
-                <ProductsSection />
-            </React.Fragment>
+            null
+            // <React.Fragment>
+            //     <ProductsSection />
+            // </React.Fragment>
         );
     }
-};
+}
 
 export default ProductTypes;
