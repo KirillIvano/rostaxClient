@@ -4,11 +4,11 @@ import styles from './styles.less';
 
 const data = [
     {
-        name: 'Краска так т', 
+        name: 'Краска так т',
         type: 'Какая - то очень крутая краска.',
         shortDescription: 'с прикольным описанием',
     }, {
-        name: 'Краска так т', 
+        name: 'Краска так т',
         type: 'Какая - то очень крутая краска.',
         shortDescription: 'с прикольным описанием',
     },
