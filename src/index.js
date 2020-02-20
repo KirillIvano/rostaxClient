@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Header} from './parts/Header';
-// import Contacts from './parts/Contacts';
-// import Footer from './parts/Footer';
+import Contacts from './parts/Contacts';
+import Footer from './parts/Footer';
 // import Popup from './components/Popup';
 // import Preloader from './components/Preloader';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
@@ -44,20 +44,18 @@ const App = () => {
                 hidden={false}
                 // showPopup={() => {}}
             />
-            <Main />
-            {/* <React.Suspense fallback={<Preloader />}>
-				<Switch>
-					<Route exact path="/" component={Main} />
-					<Route path="/product_types" component={React.lazy(() => import('./pages/ProductTypes'))} />
+            <React.Suspense fallback={<Preloader />}>
+                <Switch>
+                    <Route exact path="/" component={Main} />
+                    {/*<Route path="/product_types" component={React.lazy(() => import('./pages/ProductTypes'))} />
 					<Route path="/product_details/:productId" component={React.lazy(() => import('./pages/ProductDetails'))} />
 					<Route path="/product_type/:id" component={ProductPage} />
-					<Route path="/colors" component={Colors} />
-				</Switch>
-			</React.Suspense>
-            // <Contacts />
-            // <Footer />
-			// <Popup {...{popupContent, isPopupPositive, isPopupVisible, closePopup}} />
-			*/}
+                    <Route path="/colors" component={Colors} /> */}
+                </Switch>
+            </React.Suspense>
+            <Contacts />
+            <Footer />
+            {/* <Popup {...{popupContent, isPopupPositive, isPopupVisible, closePopup}} /> */}
         </div>
     );
 };

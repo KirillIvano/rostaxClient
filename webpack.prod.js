@@ -3,12 +3,16 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const merge = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const prod = {
     entry: './src/index.js',
 
     optimization: {
-        minimizer: [new OptimizeCssAssetsPlugin({})],
+        minimizer: [
+            new OptimizeCssAssetsPlugin(),
+            new TerserPlugin(),
+        ],
     },
     plugins: [
         new MiniCssExtractPlugin(),

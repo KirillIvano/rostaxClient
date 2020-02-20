@@ -1,13 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CleanObsoleteChunks = require('webpack-clean-obsolete-chunks');
 
 const dev = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         port: '3000',
         hotOnly: true,
+        historyApiFallback: true,
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -17,7 +18,7 @@ const dev = {
     devtool: 'source-map',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new CleanWebpackPlugin(),
+        new CleanObsoleteChunks(),
     ],
     mode: 'development',
     module: {
