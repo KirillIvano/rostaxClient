@@ -3,47 +3,27 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import {Header} from './parts/Header';
-import Contacts from './parts/Contacts';
+import {Contacts} from './parts/Contacts';
 import {Footer} from './parts/Footer';
 import {Popup} from './components/Popup';
 
 import {Preloader} from './components/Preloader';
 import styles from './mainStyle.less';
 
+import {usePopupState} from './hooks/usePopupState';
 // import client from './gc';
 
 import {Main} from './pages/Main';
 // import ProductPage from './pages/ProductType/';
 
 const App = () => {
-    // isPopupVisible: false,
-    // popupContent: '',
-    // isPopupPositive: true,
-    // isHeaderHidden: false,
-
-    // componentWillUnmount() {
-    // 	window.removeEventListener('scroll', this.scrollCallback);
-    // }
-
-    // showPopup = (isPositive=true, text='') => {
-    // 	this.setState({
-    // 		isPopupVisible: true,
-    // 		popupContent: text,
-    // 		isPopupPositive: isPositive,
-    // 	});
-    // }
-
-    // closePopup = () => {
-    // 	this.setState({
-    // 		isPopupVisible: false,
-    // 	});
-    // };
+    const {popupState, invokePopup} = usePopupState();
 
     return (
         <div className={styles.root}>
             <Header
                 hidden={false}
-                // showPopup={() => {}}
+                showPopup={invokePopup}
             />
             <React.Suspense fallback={<Preloader />}>
                 <Switch>
@@ -55,8 +35,8 @@ const App = () => {
                 </Switch>
             </React.Suspense>
             <Contacts />
-            {/* <Footer /> */}
-            {/* <Popup {...{popupContent, isPopupPositive, isPopupVisible, closePopup}} /> */}
+            <Footer />
+            <Popup {...popupState} />
         </div>
     );
 };

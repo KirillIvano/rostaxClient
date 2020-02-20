@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styles from './styles.less';
+import classnames from 'classnames';
 
 export const  Popup = ({
     isPopupPositive,
@@ -7,8 +8,17 @@ export const  Popup = ({
     isPopupVisible,
 }) => {
     const colorName = `${isPopupPositive ? 'positive' : 'negative'}`;
+
     return (
-        <div className={styles[colorName] + ' ' + styles.popup + ' ' + (isPopupVisible || styles.hidden)}>
+        <div className={
+            classnames(
+                styles[colorName],
+                styles.popup,
+                {
+                    [styles.hidden]: !isPopupVisible,
+                },
+            )
+        }>
             {popupContent}
         </div>
     );

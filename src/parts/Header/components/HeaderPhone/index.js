@@ -13,7 +13,7 @@ export const HeaderPhone = ({
 }) => (
     <Copy
         phone={74959722824}
-        handler={() => showPopup(true, 'Номер успешно скопирован!')}
+        handleClick={() => showPopup('Номер успешно скопирован!', true)}
     >
         <Phone />
     </Copy>

@@ -4,7 +4,7 @@ import styles from './styles.less';
 import {MapFrame} from './../MapFrame';
 import {ContactsContent} from '../ContactsContent';
 
-const Contacts = () => {
+export const Contacts = () => {
     const [frameSize, setFrameSize] = useState('100%');
 
     useEffect(() => {
@@ -24,5 +24,3 @@ const Contacts = () => {
         </div>
     );
 };
-
-export default Contacts;

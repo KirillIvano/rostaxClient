@@ -35,7 +35,7 @@ module.exports = {
         'no-trailing-spaces': ['error'],
         'handle-callback-err': ['error'],
         'max-len': ['warn', {code: 120}],
-
+        'no-console': ['error'],
         // react
         'react/jsx-uses-react': 'error',
         'react/jsx-uses-vars': 'error',
