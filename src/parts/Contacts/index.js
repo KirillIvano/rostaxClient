@@ -1,41 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
 import styles from './styles.less';
-import MapFrame from './../MapFrame';
-import ContactsContent from '../ContactsContent';
+import {MapFrame} from './../MapFrame';
+import {ContactsContent} from '../ContactsContent';
 
-class Contacts extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            frameWidth: '100%',
-        };
-    }
+const Contacts = () => {
+    const [frameSize, setFrameSize] = useState('100%');
 
-    setCurrentScreenWidth = () => {
-        const screenWidth = window.innerWidth;
-
-        this.setState({
-            frameWidth: screenWidth < 700 ? '100%' : '50%',
-        });
-    }
-
-    componentDidMount() {
-        this.setCurrentScreenWidth();
-        window.addEventListener('resize', this.setCurrentScreenWidth);
-    };
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setCurrentScreenWidth);
-    }
-
-    render() {
-        return (
-            <div className={styles.contentSection}>
-                <MapFrame width={this.state.frameWidth} />
-                <ContactsContent />
-            </div>
+    useEffect(() => {
+        const changeSize = () => setFrameSize(
+            window.innerWidth > 600 ?
+                '70%' : '100%',
         );
-    }
+
+        window.addEventListener('resize', changeSize);
+        return window.removeEventListener('resize', changeSize);
+    }, []);
+
+    return (
+        <div className={styles.contentSection}>
+            <MapFrame width={frameSize} />
+            <ContactsContent />
+        </div>
+    );
 };
 
 export default Contacts;

@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
 import {Header} from './parts/Header';
 import Contacts from './parts/Contacts';
-import Footer from './parts/Footer';
-// import Popup from './components/Popup';
-// import Preloader from './components/Preloader';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Footer} from './parts/Footer';
+import {Popup} from './components/Popup';
+
+import {Preloader} from './components/Preloader';
 import styles from './mainStyle.less';
-// import {Provider} from 'react-redux';
 
 // import client from './gc';
 
@@ -54,7 +55,7 @@ const App = () => {
                 </Switch>
             </React.Suspense>
             <Contacts />
-            <Footer />
+            {/* <Footer /> */}
             {/* <Popup {...{popupContent, isPopupPositive, isPopupVisible, closePopup}} /> */}
         </div>
     );
