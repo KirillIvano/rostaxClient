@@ -11,7 +11,7 @@ import styles from './mainStyle.less';
 
 // import client from './gc';
 
-// import Main from './pages/Main';
+import {Main} from './pages/Main';
 // import ProductPage from './pages/ProductType/';
 
 const App = () => {
@@ -44,6 +44,7 @@ const App = () => {
                 hidden={false}
                 // showPopup={() => {}}
             />
+            <Main />
             {/* <React.Suspense fallback={<Preloader />}>
 				<Switch>
 					<Route exact path="/" component={Main} />
