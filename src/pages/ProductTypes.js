@@ -1,26 +1,10 @@
 import React from 'react';
-import ProductsSection from '@/parts/ProductsSection';
+import {ProductsSection} from '@/parts/ProductsSection';
 
-class ProductTypes extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+export const ProductTypes = () => (
+    <ProductsSection />
+);
 
-    componentDidMount() {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:5000/api/products/kek');
-        xhr.send();
-        xhr.onload = (data) => console.log(data, xhr);
-    }
 
-    render() {
-        return (
-            null
-            // <React.Fragment>
-            //     <ProductsSection />
-            // </React.Fragment>
-        );
-    }
-}
 
 export default ProductTypes;

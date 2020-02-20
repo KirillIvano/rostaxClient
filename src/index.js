@@ -11,8 +11,8 @@ import {Preloader} from './components/Preloader';
 import styles from './mainStyle.less';
 
 import {usePopupState} from './hooks/usePopupState';
-// import client from './gc';
-
+import client from './gc';
+import {ApolloProvider} from '@apollo/react-hooks';
 import {Main} from './pages/Main';
 // import ProductPage from './pages/ProductType/';
 
@@ -28,8 +28,8 @@ const App = () => {
             <React.Suspense fallback={<Preloader />}>
                 <Switch>
                     <Route exact path="/" component={Main} />
-                    {/*<Route path="/product_types" component={React.lazy(() => import('./pages/ProductTypes'))} />
-					<Route path="/product_details/:productId" component={React.lazy(() => import('./pages/ProductDetails'))} />
+                    <Route path="/product_types" component={React.lazy(() => import('./pages/ProductTypes'))} />
+                    {/*<Route path="/product_details/:productId" component={React.lazy(() => import('./pages/ProductDetails'))} />
 					<Route path="/product_type/:id" component={ProductPage} />
                     <Route path="/colors" component={Colors} /> */}
                 </Switch>
@@ -43,7 +43,9 @@ const App = () => {
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
     </BrowserRouter>,
     document.getElementById('root'),
 );

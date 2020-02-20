@@ -3,16 +3,22 @@ import {Link as ScrollLink} from 'react-scroll';
 import {Link} from 'react-router-dom';
 import styles from './styles.less';
 
-const NavItems = props => (
+const NavItems = () => (
     <React.Fragment>
         <Link to={'/'}>
-            <div className={styles.navItem}>ГЛАВНАЯ</div>
+            <div className={styles.navItem}>
+                ГЛАВНАЯ
+            </div>
         </Link>
         <Link to={'/product_types'}>
-            <div className={styles.navItem}>ПРОДУКТЫ</div>
+            <div className={styles.navItem}>
+                ПРОДУКТЫ
+            </div>
         </Link>
         <Link to={'/colors'}>
-            <div className={styles.navItem}>КОЛЕРОВКА</div>
+            <div className={styles.navItem}>
+                КОЛЕРОВКА
+            </div>
         </Link>
         <div className={styles.navItem}>
             <ScrollLink
