@@ -1,8 +1,17 @@
 import React from 'react';
-import styles from './styles.less';
-import Button from '@/components/Button';
 
-export const ProductTypeItem = ({name, type, shortDescription}) => (
+import styles from './styles.less';
+import {Button} from '@/components/Button';
+import {Link} from 'react-router-dom';
+
+export const ProductTypeItem = ({
+    categoryId,
+    id,
+
+    name,
+    type,
+    shortDescription,
+}) => (
     <div className={styles.productType}>
         <div className={styles.name}>
             {name}
@@ -21,8 +30,10 @@ export const ProductTypeItem = ({name, type, shortDescription}) => (
             </span>
             {shortDescription}
         </div>
-        <Button size={'l'}>
-            Перейти к товару.
-        </Button>
+        <Link to={`/product_details/${categoryId}/${id}`}>
+            <Button size={'l'}>
+                Перейти к товару.
+            </Button>
+        </Link>
     </div>
 );

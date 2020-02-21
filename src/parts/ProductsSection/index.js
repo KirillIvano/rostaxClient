@@ -41,12 +41,12 @@ export const ProductsSection = () => {
             <SmallPreloader />
         </div>);
     }
+    // TODO: handle errors
     if (error) {
-        return error;
+        return JSON.stringify(error);
     }
 
     const {productCategories} = data;
-
     return (
         <div className={styles.previewSection}>
             <div className={styles.headline}>

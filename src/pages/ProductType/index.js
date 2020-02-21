@@ -1,30 +1,50 @@
 import React from 'react';
-import ProductTypeItem from '@/components/ProductTypeItem';
+import {gql} from 'apollo-boost';
+import {useQuery} from '@apollo/react-hooks';
+import {useParams} from 'react-router-dom';
+
+import {ProductTypeItem} from '@/components/ProductTypeItem';
+import {SmallPreloader} from '@/components/SmallPreloader';
 import styles from './styles.less';
 
-const data = [
-    {
-        name: 'Краска так т', 
-        type: 'Какая - то очень крутая краска.',
-        shortDescription: 'с прикольным описанием',
-    }, {
-        name: 'Краска так т', 
-        type: 'Какая - то очень крутая краска.',
-        shortDescription: 'с прикольным описанием',
-    },
-];
+export const ProductType = () => {
+    const {categoryId} = useParams();
+    const GET_PRODUCT_TYPE = gql`
+        {
+            products(categoryId: ${categoryId}) {
+                name
+                type
+                shortDescription
+                id
+            }
+        }
+    `;
 
-class Product extends React.Component {
-    constructor(props) {
-        super(props);
+    const {data, loading, error} = useQuery(GET_PRODUCT_TYPE);
+
+    if (loading) {
+        return <SmallPreloader />;
     }
-    render() {
-        return (
-            <div className={styles.productTypePage}>
-                {data.map((item) => <ProductTypeItem {...item} />)}
-            </div>
-        );
+
+    if (error) {
+        return null;
     }
+
+    const {products} = data;
+
+    return (
+        <div className={styles.productTypePage}>
+            {
+                products.map(
+                    product => (
+                        <ProductTypeItem
+                            key={product.id}
+                            categoryId={categoryId}
+                            {...product}
+                        />
+                    ),
+                )
+            }
+        </div>
+    );
 };
-
-export default Product;
