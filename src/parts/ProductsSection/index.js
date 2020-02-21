@@ -6,39 +6,55 @@ import {PreviewCard} from '@/components/PreviewCard';
 import styles from './styles.less';
 import image from '@/images/paints.jpg';
 
+import {SmallPreloader} from '@/components/SmallPreloader';
+
+
 const PRODUCTS_NAMES = gql`
     {
         productCategories {
             name
+            id
         }
     }
 `;
+
+const PreviewCards = ({
+    productCategories,
+}) => productCategories.map(
+    ({id, name}) => (
+        <PreviewCard
+            key={id}
+            to={`/product_type/${id}`}
+            image={image}
+        >
+            {name}
+        </PreviewCard>
+    ),
+);
+
 
 export const ProductsSection = () => {
     const {loading, error, data} = useQuery(PRODUCTS_NAMES);
 
     if (loading) {
-        return 'kekasda';
+        return (<div className={styles.previewSection}>
+            <SmallPreloader />
+        </div>);
     }
-
     if (error) {
         return error;
     }
+
+    const {productCategories} = data;
 
     return (
         <div className={styles.previewSection}>
             <div className={styles.headline}>
                 Наша продукция
             </div>
-            <PreviewCard to={'/product_type/0'} image={image}>
-                {JSON.stringify(data)}
-            </PreviewCard>
-            <PreviewCard to={'/product_type/0'} image={image}>
-                {JSON.stringify(data)}
-            </PreviewCard>
-            <PreviewCard to={'/product_type/0'} image={image}>
-                {JSON.stringify(data)}
-            </PreviewCard>
+            <PreviewCards productCategories={productCategories} />
         </div>
+
+
     );
 };
