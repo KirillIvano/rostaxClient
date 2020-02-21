@@ -7,14 +7,12 @@ export const PreviewCard =  ({
     children,
     to,
 }) => (
-    <Link to={to}>
-        <div className={styles.card}>
-            <img src={image} className={styles.innerImage}></img>
-            <div className={styles.cover}>
-                <p className={styles.text}>
-                    {children}
-                </p>
-            </div>
+    <Link className={styles.card} to={to}>
+        <img src={image} className={styles.innerImage}></img>
+        <div className={styles.cover}>
+            <p className={styles.text}>
+                {children}
+            </p>
         </div>
     </Link>
 );

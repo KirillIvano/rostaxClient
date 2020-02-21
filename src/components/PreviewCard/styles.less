@@ -3,22 +3,21 @@
     height: 200px;
     position: relative;
     overflow: hidden;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     margin-top: 10px;
     margin-left: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+
     .innerImage {
         display: block;
         position: absolute;
         width: 300px;
         height: 200px;
-        left: 50%;
-        margin-left: -150px;
-        top: 50%;
-        margin-top: -100px;    
         transition: 1s ease-in-out;  
     }
+
     .cover {
         z-index: 2;
         position: absolute;
@@ -52,5 +51,24 @@
 @media all and (max-width: 600px) {
     .card {
         margin-left: 0px;
+        width: 100%;
+        min-height: 200px;
+        height: auto;
+
+        .innerImage {
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+}
+
+
+@media all and (max-width: 400px) {
+    .card {
+        .innerImage {
+            height: 100%;
+            width: auto;
+        }
     }
 }
