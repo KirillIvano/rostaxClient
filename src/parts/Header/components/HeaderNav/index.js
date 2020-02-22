@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './styles.less';
 import NavItems from '@/parts/NavItems';
 
-export const HeaderNav = () => (
+export const HeaderNav = ({toggleMenu}) => (
     <div className={styles.nav}>
-        <NavItems />
+        <NavItems toggleMenu={toggleMenu} />
     </div>
 );

@@ -7,6 +7,7 @@ import styles from './styles.less';
 import image from '@/images/paints.jpg';
 
 import {SmallPreloader} from '@/components/SmallPreloader';
+import {Error} from '@/components/Error';
 
 
 const PRODUCTS_NAMES = gql`
@@ -37,13 +38,22 @@ export const ProductsSection = () => {
     const {loading, error, data} = useQuery(PRODUCTS_NAMES);
 
     if (loading) {
-        return (<div className={styles.previewSection}>
-            <SmallPreloader />
-        </div>);
+        return (
+            <div className={styles.previewSection}>
+                <SmallPreloader />
+            </div>
+        );
     }
-    // TODO: handle errors
+
     if (error) {
-        return JSON.stringify(error);
+        return (
+            <div className={styles.previewSection}>
+                <Error
+                    text={'Что - то сломалось. Пожалуйста, позвоните и' +
+                          ' задайте все вопросы нам лично, или приходите позже!'}
+                />
+            </div>
+        );
     }
 
     const {productCategories} = data;
@@ -54,7 +64,5 @@ export const ProductsSection = () => {
             </div>
             <PreviewCards productCategories={productCategories} />
         </div>
-
-
     );
 };

@@ -3,7 +3,7 @@ import {Link as ScrollLink} from 'react-scroll';
 import {Link} from 'react-router-dom';
 import styles from './styles.less';
 
-const NavItems = () => (
+const NavItems = ({toggleMenu}) => console.log(toggleMenu) || (
     <React.Fragment>
         <Link to={'/'}>
             <div className={styles.navItem}>
@@ -23,6 +23,7 @@ const NavItems = () => (
         <div className={styles.navItem}>
             <ScrollLink
                 to={'contacts'}
+                onClick={toggleMenu}
                 duration={1500}
                 smooth={true}
                 offset={-100}

@@ -5,8 +5,9 @@ import NavItems from '@/parts/NavItems';
 
 export const HeaderMenu = ({
     isOpened,
+    toggleMenu,
 }) => (
     <div className={styles.menu + ' ' + (isOpened && styles.opened)}>
-        <NavItems />
+        <NavItems toggleMenu={toggleMenu} />
     </div>
 );
