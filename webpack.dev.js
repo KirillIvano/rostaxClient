@@ -19,6 +19,9 @@ const dev = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new CleanObsoleteChunks(),
+        new webpack.DefinePlugin({
+            SERVER_ORIGIN: '"https://localhost:5000"',
+        }),
     ],
     mode: 'development',
     module: {

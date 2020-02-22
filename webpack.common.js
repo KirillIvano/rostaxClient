@@ -8,14 +8,11 @@ module.exports = {
         },
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve('C:\\Users\\ivann\\simros\\static', 'dist'),
         publicPath: '/',
-        // `filename` provides a template for naming your bundles (remember to use `[name]`)
         filename: 'bundle.js',
-        // `chunkFilename` provides a template for naming code-split bundles (optional)
         chunkFilename: '[name].bundle.js',
     },
-
     module: {
         rules: [
             {

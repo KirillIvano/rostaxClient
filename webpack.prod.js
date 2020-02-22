@@ -4,7 +4,8 @@ const path = require('path');
 const merge = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CleanObsoleteChunks = require('webpack-clean-obsolete-chunks');
+const webpack = require('webpack');
 
 const prod = {
     entry: './src/index.js',
@@ -16,8 +17,11 @@ const prod = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanObsoleteChunks(),
         new MiniCssExtractPlugin(),
+        new webpack.DefinePlugin({
+            SERVER_ORIGIN: '"https://rostax.herokuapp.com"',
+        }),
     ],
     mode: 'production',
     module: {

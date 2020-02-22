@@ -20,6 +20,9 @@ module.exports = {
             'jsx': true
         }
     },
+    'globals': {
+        SERVER_ORIGIN: true,
+    },
     'rules': {
         'indent': ['error', 4],
         'quotes': ['error', 'single'],
