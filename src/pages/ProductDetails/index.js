@@ -5,12 +5,13 @@ import {gql} from 'apollo-boost';
 
 import styles from './styles.less';
 import {SmallPreloader} from '@/components/SmallPreloader';
+import {BackButton} from '@/components/BackButton';
 import {
     DescriptionSectionsMap,
     MainSection,
 } from './components';
 
-export const ProductDetails = () => {
+const ProductDetails = () => {
     const {productId, categoryId} = useParams();
 
     const GET_PRODUCT = useMemo(
@@ -54,8 +55,10 @@ export const ProductDetails = () => {
         <div className={styles.productDetails}>
             <MainSection {...{name, shortDescription, type}}  />
             <DescriptionSectionsMap description={description} />
+            <BackButton url={`/product_type/${categoryId}`} />
         </div>
     );
 };
 
 
+export default ProductDetails;

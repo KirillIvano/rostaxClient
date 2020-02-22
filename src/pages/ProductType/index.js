@@ -1,14 +1,18 @@
 import React from 'react';
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
-import {useParams} from 'react-router-dom';
+import {
+    useParams,
+} from 'react-router-dom';
 
 import {ProductTypeItem} from '@/components/ProductTypeItem';
 import {SmallPreloader} from '@/components/SmallPreloader';
+import {BackButton} from '@/components/BackButton';
 import styles from './styles.less';
 
-export const ProductType = () => {
+const ProductType = () => {
     const {categoryId} = useParams();
+
     const GET_PRODUCT_TYPE = gql`
         {
             products(categoryId: ${categoryId}) {
@@ -33,18 +37,23 @@ export const ProductType = () => {
     const {products} = data;
 
     return (
-        <div className={styles.productTypePage}>
-            {
-                products.map(
-                    product => (
-                        <ProductTypeItem
-                            key={product.id}
-                            categoryId={categoryId}
-                            {...product}
-                        />
-                    ),
-                )
-            }
-        </div>
+        <>
+            <div className={styles.productTypePage}>
+                {
+                    products.map(
+                        product => (
+                            <ProductTypeItem
+                                key={product.id}
+                                categoryId={categoryId}
+                                {...product}
+                            />
+                        ),
+                    )
+                }
+            </div>
+            <BackButton url={'/product_types/'} />
+        </>
     );
 };
+
+export default ProductType;

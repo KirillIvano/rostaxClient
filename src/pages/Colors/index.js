@@ -5,6 +5,7 @@ import {gql} from 'apollo-boost';
 import styles from './styles.less';
 import {SmallPreloader} from '@/components/SmallPreloader';
 import {Color} from '@/components/Color';
+import {BackButton} from '@/components/BackButton';
 
 const GET_COLORS = gql`
     {
@@ -32,7 +33,7 @@ export const ColorSection = ({
     </div>
 );
 
-export const Colors = () => {
+const Colors = () => {
     const {data, loading, error} = useQuery(GET_COLORS);
 
     if (loading) {
@@ -50,10 +51,15 @@ export const Colors = () => {
     const {colorSections} = data;
 
     return(
-        <div className={styles.colorsPage}>
-            {
-                colorSections.map(section => <ColorSection key={section.name} {...section} />)
-            }
-        </div>
+        <>
+            <div className={styles.colorsPage}>
+                {
+                    colorSections.map(section => <ColorSection key={section.name} {...section} />)
+                }
+            </div>
+            <BackButton url={'/'} />
+        </>
     );
 };
+
+export default Colors;
