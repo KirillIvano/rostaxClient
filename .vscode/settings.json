@@ -7,7 +7,4 @@
     "files.associations": {
         "*.js": "javascriptreact"
     },
-    "jumpToAliasFile.alias": {
-        "@": "./../src",
-    }
 }

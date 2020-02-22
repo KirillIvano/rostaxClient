@@ -4,6 +4,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-w;ebpack-plugin');
 
 const prod = {
     entry: './src/index.js',
@@ -15,6 +16,7 @@ const prod = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
     ],
     mode: 'production',
@@ -22,9 +24,17 @@ const prod = {
 
         rules: [
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|svg)$/,
                 use: [
                     {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'image/',
+                            publicPath: 'image/',
+                            esModule: false,
+                        },
+                    }, {
                         loader: 'image-webpack-loader',
                         options: {
                             mozjpeg: {
@@ -35,11 +45,6 @@ const prod = {
                             optipng: {
                                 enabled: true,
                             },
-                            pngquant: {
-                                quality: '65-90',
-                                speed: 4,
-                            },
-
                         },
                     },
                 ],
