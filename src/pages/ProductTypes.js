@@ -5,6 +5,4 @@ export const ProductTypes = () => (
     <ProductsSection />
 );
 
-
-
 export default ProductTypes;
