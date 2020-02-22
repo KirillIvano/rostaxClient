@@ -5,13 +5,16 @@ import {gql} from 'apollo-boost';
 
 import styles from './styles.less';
 import {SmallPreloader} from '@/components/SmallPreloader';
+import {Error} from '@/components/Error';
 import {BackButton} from '@/components/BackButton';
 import {
     DescriptionSectionsMap,
     MainSection,
 } from './components';
+import {useScrollTop} from '@/hooks/useScrollTop';
 
 const ProductDetails = () => {
+    useScrollTop();
     const {productId, categoryId} = useParams();
 
     const GET_PRODUCT = useMemo(
@@ -45,7 +48,14 @@ const ProductDetails = () => {
     }
 
     if (error) {
-        return null;
+        return (
+            <div className={styles.productDetails}>
+                <Error
+                    text={'Что - то сломалось. Пожалуйста, позвоните и' +
+                  ' задайте все вопросы нам лично, или приходите позже!'}
+                />
+            </div>
+        );
     }
 
     const {product} = data;

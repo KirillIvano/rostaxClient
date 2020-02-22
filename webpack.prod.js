@@ -4,7 +4,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
 const TerserPlugin = require('terser-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-w;ebpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const prod = {
     entry: './src/index.js',

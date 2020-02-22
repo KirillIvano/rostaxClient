@@ -7,10 +7,13 @@ import {
 
 import {ProductTypeItem} from '@/components/ProductTypeItem';
 import {SmallPreloader} from '@/components/SmallPreloader';
+import {Error} from '@/components/Error';
 import {BackButton} from '@/components/BackButton';
 import styles from './styles.less';
+import {useScrollTop} from '@/hooks/useScrollTop';
 
 const ProductType = () => {
+    useScrollTop();
     const {categoryId} = useParams();
 
     const GET_PRODUCT_TYPE = gql`
@@ -31,7 +34,14 @@ const ProductType = () => {
     }
 
     if (error) {
-        return null;
+        return (
+            <div className={styles.productTypePage}>
+                <Error
+                    text={'Что - то сломалось. Пожалуйста, позвоните и' +
+                  ' задайте все вопросы нам лично, или приходите позже!'}
+                />
+            </div>
+        );
     }
 
     const {products} = data;

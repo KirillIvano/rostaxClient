@@ -5,7 +5,9 @@ import {gql} from 'apollo-boost';
 import styles from './styles.less';
 import {SmallPreloader} from '@/components/SmallPreloader';
 import {Color} from '@/components/Color';
+import {Error} from '@/components/Error';
 import {BackButton} from '@/components/BackButton';
+import {useScrollTop} from '@/hooks/useScrollTop';
 
 const GET_COLORS = gql`
     {
@@ -34,18 +36,26 @@ export const ColorSection = ({
 );
 
 const Colors = () => {
+    useScrollTop();
     const {data, loading, error} = useQuery(GET_COLORS);
 
     if (loading) {
         return (
-            <div className={styles.colors}>
+            <div className={styles.colorsPage}>
                 <SmallPreloader />
             </div>
         );
     }
 
     if (error) {
-        return null;
+        return (
+            <div className={styles.colorsPage}>
+                <Error
+                    text={'Что - то сломалось. Пожалуйста, позвоните и' +
+                          ' задайте все вопросы нам лично, или приходите позже!'}
+                />
+            </div>
+        );
     }
 
     const {colorSections} = data;

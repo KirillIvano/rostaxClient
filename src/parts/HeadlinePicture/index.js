@@ -18,8 +18,14 @@ export const HeadlinePicture = () => (
         <div className={classnames(styles.over, styles.top)}></div>
         <div className={classnames(styles.over, styles.bottom)}></div>
         <TextSection>
-                ООО ПКФ «РОСТАКС» работает на рынке лакокрасочной продукции с 1994 года!
+            <h1 className={styles.naming}>
+                ООО ПКФ «РОСТАКС»
+            </h1>
+            <h2 className={styles.subHeadline}>
+                Производим качественную продукцию с 1994 года!
+            </h2>
             <ScrollLink
+                className={styles.link}
                 to={'contacts'}
                 duration={1500}
                 smooth={true}
