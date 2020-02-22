@@ -3,6 +3,7 @@
     z-index: 999;
     top: 0px;
     width: 100%;
+    left: -100%;
     padding-top: 80px;
     
     display: flex;
@@ -12,9 +13,10 @@
     background: #061722;
 
     opacity: 0;
-    transition: .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
 }
 
 .menu.opened {
     opacity: 1;
+    left: 0;
 }

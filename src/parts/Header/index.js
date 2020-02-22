@@ -39,14 +39,14 @@ export const Header = ({
                 <HeaderPhone showPopup={showPopup} />
             </div>
 
-            {/*
+            {
                 width > 500 ?
                     null :
                     <HeaderMenu
                         toggleMenu={toggleMenu}
                         isOpened={isMenuOpened}
                     />
-            */}
+            }
         </>
     );
 };

@@ -9,7 +9,7 @@ export const Button = ({
     size,
 }) => {
     const sizeName = `size_${size === 'xl' ? 'xl' : 'l'}`;
-    console.log('button');
+
     return (
         <button
             type='button'
