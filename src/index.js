@@ -8,12 +8,16 @@ import {ApolloProvider} from '@apollo/react-hooks';
 
 import {Header} from './parts/Header';
 import {Contacts} from './parts/Contacts';
-import {Main} from './pages/Main';
-import {ProductType} from './pages/ProductType/';
-import {ProductDetails} from './pages/ProductDetails';
-import {Colors} from './pages/Colors';
+
 import {Footer} from './parts/Footer';
 import {Popup} from './components/Popup';
+
+import {
+    Main,
+    ProductDetails,
+    ProductType,
+    Colors,
+} from './pages';
 
 import {Preloader} from './components/Preloader';
 import styles from './mainStyle.less';
