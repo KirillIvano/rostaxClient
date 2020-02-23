@@ -4,12 +4,16 @@ import classnames from 'classnames';
 import styles from './styles.less';
 import {Button} from '@/components';
 import {Link as ScrollLink} from 'react-scroll';
+import {useAppearOnStart} from '@/hooks/useAppearOnStart';
 
-const TextSection = ({children}) => (
-    <div className={styles.textSection}>
-        {children}
-    </div>
-);
+const TextSection = ({children}) => {
+    const appearRef = useAppearOnStart();
+    return (
+        <div ref={appearRef} className={styles.textSection}>
+            {children}
+        </div>
+    );
+};
 
 const windowHeight = document.documentElement.clientHeight;
 

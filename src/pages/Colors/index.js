@@ -16,7 +16,7 @@ const GET_COLORS = gql`
         colorSections {
             name 
             colors{
-                name,
+                nam,
                 code
             }
         }

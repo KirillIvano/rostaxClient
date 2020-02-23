@@ -1,7 +1,7 @@
 @import '/colors.less'; 
 
 .aboutSection {
-    padding: 20px 20px;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,9 @@
             min-width: 250px;
             padding: 10px 5px;
             text-align: center;
-    
+            opacity: 0;
+            transition: 1s;
+
             .experience {
                 display: inline-block;
                 margin: 30px 0;
@@ -47,6 +49,15 @@
                 color: @gray;
                 font-size: 16px;
             }
+        }
+    }
+}
+
+:global(.appeared).aboutSection{
+    .aboutItems {
+        .item {
+            opacity: 1;
+
         }
     }
 }
