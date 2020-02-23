@@ -4,9 +4,11 @@ import {useParams} from 'react-router-dom';
 import {gql} from 'apollo-boost';
 
 import styles from './styles.less';
-import {SmallPreloader} from '@/components/SmallPreloader';
-import {Error} from '@/components/Error';
-import {BackButton} from '@/components/BackButton';
+import {
+    SmallPreloader,
+    ErrorView,
+    BackButton,
+} from '@/components';
 import {
     DescriptionSectionsMap,
     MainSection,
@@ -50,7 +52,7 @@ const ProductDetails = () => {
     if (error) {
         return (
             <div className={styles.productDetails}>
-                <Error
+                <ErrorView
                     text={'Что - то сломалось. Пожалуйста, позвоните и' +
                   ' задайте все вопросы нам лично, или приходите позже!'}
                 />

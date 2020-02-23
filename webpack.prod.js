@@ -30,15 +30,8 @@ const prod = {
             {
                 test: /\.(png|jpg|svg)$/,
                 use: [
+                    'url-loader',
                     {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'image/',
-                            publicPath: 'image/',
-                            esModule: false,
-                        },
-                    }, {
                         loader: 'image-webpack-loader',
                         options: {
                             mozjpeg: {

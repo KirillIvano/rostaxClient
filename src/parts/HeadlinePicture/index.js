@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import styles from './styles.less';
-import {Button} from '@/components/Button';
+import {Button} from '@/components';
 import {Link as ScrollLink} from 'react-scroll';
 
 const TextSection = ({children}) => (
@@ -13,7 +13,7 @@ const TextSection = ({children}) => (
 
 const windowHeight = document.documentElement.clientHeight;
 
-export const HeadlinePicture = () => (
+const HeadlinePicture = () => (
     <div style={{height: windowHeight}} className={styles.headlineContent}>
         <div className={classnames(styles.over, styles.top)}></div>
         <div className={classnames(styles.over, styles.bottom)}></div>
@@ -38,3 +38,5 @@ export const HeadlinePicture = () => (
         </TextSection>
     </div>
 );
+
+export default HeadlinePicture;

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import styles from './styles.less';
-import {Button} from '@/components/Button';
+import {Button} from '@/components';
 import {Link} from 'react-router-dom';
 
-export const ProductTypeItem = ({
+const ProductTypeItem = ({
     categoryId,
     id,
 
@@ -37,3 +37,5 @@ export const ProductTypeItem = ({
         </Link>
     </div>
 );
+
+export default ProductTypeItem;

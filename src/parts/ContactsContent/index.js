@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.less';
 import {Element} from 'react-scroll';
 
-export const ContactsContent = () => (
+const ContactsContent = () => (
     <Element name={'contacts'}>
         <div className={styles.content}>
             <h1>
@@ -50,3 +50,5 @@ export const ContactsContent = () => (
         </div>
     </Element>
 );
+
+export default ContactsContent;

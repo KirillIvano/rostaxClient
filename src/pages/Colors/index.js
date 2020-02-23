@@ -3,10 +3,12 @@ import {useQuery} from '@apollo/react-hooks';
 import {gql} from 'apollo-boost';
 
 import styles from './styles.less';
-import {SmallPreloader} from '@/components/SmallPreloader';
-import {Color} from '@/components/Color';
-import {Error} from '@/components/Error';
-import {BackButton} from '@/components/BackButton';
+import {
+    SmallPreloader,
+    Color,
+    ErrorView,
+    BackButton,
+} from '@/components';
 import {useScrollTop} from '@/hooks/useScrollTop';
 
 const GET_COLORS = gql`
@@ -50,7 +52,7 @@ const Colors = () => {
     if (error) {
         return (
             <div className={styles.colorsPage}>
-                <Error
+                <ErrorView
                     text={'Что - то сломалось. Пожалуйста, позвоните и' +
                           ' задайте все вопросы нам лично, или приходите позже!'}
                 />

@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.less';
 
-import {Button} from '@/components/Button';
+import {Button} from '@/components';
 import {Link} from 'react-router-dom';
 
-export const About = () => {
+const About = () => {
     return (
         <div className={styles.aboutSection}>
             <h1 className={styles.headline}>
@@ -52,3 +52,4 @@ export const About = () => {
     );
 };
 
+export default About;

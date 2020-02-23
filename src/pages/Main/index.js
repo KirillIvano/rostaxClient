@@ -1,12 +1,20 @@
 import React from 'react';
 
-import {About} from '@/parts/About';
-import {HeadlinePicture} from '@/parts/HeadlinePicture';
+import {
+    HeadlinePicture,
+    About,
+} from '@/parts';
+import {useScrollTop} from '@/hooks/useScrollTop';
 
-export const Main = () => (
-    <>
-        <HeadlinePicture />
-        <About />
-    </>
-);
+const Main = () => {
+    useScrollTop();
 
+    return (
+        <>
+            <HeadlinePicture />
+            <About />
+        </>
+    );
+};
+
+export default Main;

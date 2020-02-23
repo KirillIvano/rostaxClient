@@ -3,7 +3,7 @@ import {Link as ScrollLink} from 'react-scroll';
 import {Link} from 'react-router-dom';
 import styles from './styles.less';
 
-const NavItems = ({toggleMenu}) => console.log(toggleMenu) || (
+const NavItems = ({toggleMenu}) => (
     <React.Fragment>
         <Link to={'/'}>
             <div className={styles.navItem}>

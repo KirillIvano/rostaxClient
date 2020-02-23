@@ -6,11 +6,16 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {ApolloProvider} from '@apollo/react-hooks';
 
-import {Header} from './parts/Header';
-import {Contacts} from './parts/Contacts';
+import {
+    Header,
+    Contacts,
+    Footer,
+} from './parts';
 
-import {Footer} from './parts/Footer';
-import {Popup} from './components/Popup';
+import {
+    Preloader,
+    Popup,
+} from './components';
 
 import {
     Main,
@@ -19,7 +24,6 @@ import {
     Colors,
 } from './pages';
 
-import {Preloader} from './components/Preloader';
 import styles from './mainStyle.less';
 
 import {usePopupState} from './hooks/usePopupState';

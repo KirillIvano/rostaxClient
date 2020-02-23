@@ -2,12 +2,13 @@ import React from 'react';
 import {gql} from 'apollo-boost';
 import {useQuery} from '@apollo/react-hooks';
 
-import {PreviewCard} from '@/components/PreviewCard';
+import {
+    PreviewCard,
+    SmallPreloader,
+    ErrorView,
+} from '@/components';
 import styles from './styles.less';
 import image from '@/images/paints.jpg';
-
-import {SmallPreloader} from '@/components/SmallPreloader';
-import {Error} from '@/components/Error';
 
 
 const PRODUCTS_NAMES = gql`
@@ -34,7 +35,7 @@ const PreviewCards = ({
 );
 
 
-export const ProductsSection = () => {
+const ProductsSection = () => {
     const {loading, error, data} = useQuery(PRODUCTS_NAMES);
 
     if (loading) {
@@ -48,7 +49,7 @@ export const ProductsSection = () => {
     if (error) {
         return (
             <div className={styles.previewSection}>
-                <Error
+                <ErrorView
                     text={'Что - то сломалось. Пожалуйста, позвоните и' +
                           ' задайте все вопросы нам лично, или приходите позже!'}
                 />
@@ -66,3 +67,5 @@ export const ProductsSection = () => {
         </div>
     );
 };
+
+export default ProductsSection;

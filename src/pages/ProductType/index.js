@@ -5,10 +5,12 @@ import {
     useParams,
 } from 'react-router-dom';
 
-import {ProductTypeItem} from '@/components/ProductTypeItem';
-import {SmallPreloader} from '@/components/SmallPreloader';
-import {Error} from '@/components/Error';
-import {BackButton} from '@/components/BackButton';
+import {
+    ProductTypeItem,
+    SmallPreloader,
+    ErrorView,
+    BackButton,
+} from '@/components';
 import styles from './styles.less';
 import {useScrollTop} from '@/hooks/useScrollTop';
 
@@ -36,7 +38,7 @@ const ProductType = () => {
     if (error) {
         return (
             <div className={styles.productTypePage}>
-                <Error
+                <ErrorView
                     text={'Что - то сломалось. Пожалуйста, позвоните и' +
                   ' задайте все вопросы нам лично, или приходите позже!'}
                 />

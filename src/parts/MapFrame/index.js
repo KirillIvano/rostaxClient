@@ -2,7 +2,7 @@ import React from 'react';
 
 import {googleMapUrl} from '@/strings';
 
-export const MapFrame = ({
+const MapFrame = ({
     width='100%',
     height=450,
 }) => (
@@ -15,3 +15,4 @@ export const MapFrame = ({
     />
 );
 
+export default MapFrame;

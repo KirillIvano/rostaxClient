@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom';
 
 import styles from './styles.less';
 
-
-export const Error = ({
+const ErrorView = ({
     text,
 }) => {
     return (
@@ -21,3 +20,5 @@ export const Error = ({
         </div>
     );
 };
+
+export default ErrorView;

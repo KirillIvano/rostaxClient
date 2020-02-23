@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './styles.less';
 
-export const Color = ({
+const Color = ({
     code,
     name,
 }) => (
@@ -14,3 +14,4 @@ export const Color = ({
     </div>
 );
 
+export default Color;

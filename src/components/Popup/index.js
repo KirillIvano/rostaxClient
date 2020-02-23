@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './styles.less';
 import classnames from 'classnames';
 
-export const  Popup = ({
+const Popup = ({
     isPopupPositive,
     popupContent,
     isPopupVisible,

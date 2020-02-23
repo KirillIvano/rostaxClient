@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import styles from './styles.less';
 
-export const Button = ({
+const Button = ({
     children,
 
     size,
@@ -19,3 +19,5 @@ export const Button = ({
         </button>
     );
 };
+
+export default Button;

@@ -3,7 +3,7 @@ import {animateScroll} from 'react-scroll';
 
 import styles from './styles.less';
 
-export const Footer = () => (
+const Footer = () => (
     <div className={styles.footer}>
         <div className={styles.content}>
                 Разработано KirillIvano в 2019 году
@@ -13,3 +13,5 @@ export const Footer = () => (
         </div>
     </div>
 );
+
+export default Footer;

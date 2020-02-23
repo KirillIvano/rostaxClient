@@ -10,7 +10,7 @@ import {
     HeaderBurger,
 } from './components';
 
-export const Header = ({
+const Header = ({
     showPopup,
 }) => {
     const [isMenuOpened, setMenuState] = useState(false);
@@ -50,3 +50,5 @@ export const Header = ({
         </>
     );
 };
+
+export default Header;

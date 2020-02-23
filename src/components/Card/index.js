@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.less';
 
-export const Card = ({
+const Card = ({
     name,
     description,
     picture,
@@ -18,3 +18,5 @@ export const Card = ({
         </div>
     </div>
 );
+
+export default Card;

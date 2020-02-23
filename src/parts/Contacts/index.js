@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
 import styles from './styles.less';
-import {MapFrame} from './../MapFrame';
-import {ContactsContent} from '../ContactsContent';
+import {MapFrame, ContactsContent} from './../';
 
-export const Contacts = () => {
+const Contacts = () => {
     const [frameSize, setFrameSize] = useState('100%');
 
     useEffect(() => {
@@ -24,3 +23,5 @@ export const Contacts = () => {
         </div>
     );
 };
+
+export default Contacts;
