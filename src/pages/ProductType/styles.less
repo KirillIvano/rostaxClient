@@ -1,3 +1,29 @@
 .productTypePage {
     padding-top: 100px;
+
+    .searchContainer {
+        text-align: center;
+        margin: 24px;
+
+        .search {
+            font-size: 16px;
+            display: inline-block;
+            width: 70%;
+            height: 36px;
+            padding: 5px 30px;
+        }
+        .search::placeholder {
+            letter-spacing: 3px;
+        }
+    }
+}
+
+@media all and (max-width: 600px) {
+    .productTypePage {
+        .searchContainer {
+            .search {
+                width: 90%;
+            }
+        }
+    }
 }
