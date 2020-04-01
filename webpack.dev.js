@@ -6,7 +6,7 @@ const CleanObsoleteChunks = require('webpack-clean-obsolete-chunks');
 const dev = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        port: '3000',
+        port: '3001',
         hotOnly: true,
         historyApiFallback: true,
         headers: {
@@ -21,6 +21,7 @@ const dev = {
         new CleanObsoleteChunks(),
         new webpack.DefinePlugin({
             SERVER_ORIGIN: '"http://localhost:5000"',
+            IMAGE_HOST: '"http://localhost:5000/images"',
         }),
     ],
     mode: 'development',

@@ -21,16 +21,17 @@ const ProductDetails = () => {
 
     const GET_PRODUCT = useMemo(
         () => gql`
-            {
-                product(productId: "${productId}", categoryId: ${categoryId}) {
+            query($categoryId: String, $productId: String){
+                product(productId: $productId, categoryId: $categoryId) {
                     name
-                    shortDescription
                     type
+                    shortDescription
+                    price
                     description {
                         name
                         items {
-                            propName
-                            propValue
+                            name
+                            value
                         }
                     }
                 }
@@ -39,7 +40,13 @@ const ProductDetails = () => {
         [productId, categoryId],
     );
 
-    const {data, loading, error} = useQuery(GET_PRODUCT);
+    const {data, loading, error} = useQuery(
+        GET_PRODUCT,
+        {variables: {
+            categoryId,
+            productId,
+        }},
+    );
 
     if (loading) {
         return (

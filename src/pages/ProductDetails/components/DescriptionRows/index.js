@@ -16,4 +16,4 @@ export const DescriptionRow = ({
 );
 
 export const DescriptionRowsMap = ({items}) =>
-    items.map(({propName, propValue}) => <DescriptionRow name={propName} value={propValue} />);
+    items.map(({name, value}) => <DescriptionRow {...{name, value}} />);

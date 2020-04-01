@@ -53,17 +53,23 @@ const ProductType = () => {
     const {categoryId} = useParams();
 
     const GET_PRODUCT_TYPE = gql`
-        {
-            products(categoryId: ${categoryId}) {
-                name
-                type
-                shortDescription
+        query($categoryId: String){
+            products(categoryId: $categoryId) {
+                name,
+                price,
+                shortDescription,
+                type,
+                image,
+                certificate,
                 id
             }
         }
     `;
 
-    const {data, loading, error} = useQuery(GET_PRODUCT_TYPE);
+    const {data, loading, error} = useQuery(
+        GET_PRODUCT_TYPE,
+        {variables: {categoryId}},
+    );
 
     if (loading) {
         return <SmallPreloader />;

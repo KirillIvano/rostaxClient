@@ -22,6 +22,7 @@ module.exports = {
     },
     'globals': {
         SERVER_ORIGIN: true,
+        IMAGE_HOST: true,
     },
     'rules': {
         'indent': ['error', 4],

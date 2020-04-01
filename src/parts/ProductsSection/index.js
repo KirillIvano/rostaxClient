@@ -7,14 +7,16 @@ import {
     SmallPreloader,
     ErrorView,
 } from '@/components';
+import {getImageName} from '@/helpers/getImageName';
+
 import styles from './styles.less';
-import image from '@/images/paints.jpg';
 
 
 const PRODUCTS_NAMES = gql`
     {
         productCategories {
             name
+            image
             id
         }
     }
@@ -23,11 +25,11 @@ const PRODUCTS_NAMES = gql`
 const PreviewCards = ({
     productCategories,
 }) => productCategories.map(
-    ({id, name}) => (
+    ({id, name, image}) => (
         <PreviewCard
             key={id}
             to={`/product_type/${id}`}
-            image={image}
+            image={getImageName(image)}
         >
             {name}
         </PreviewCard>
